@@ -1,0 +1,64 @@
+.header-toolbar {
+  background-color: #0f171e;
+  color: white;
+  padding: 0;
+  height: 72px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.verpelis-logo {
+  width: 150px;
+  height: auto;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+
+  button {
+    color: #ccc;
+    font-size: 16px;
+    margin-right: 5px;
+
+    &.active {
+      color: white;
+      font-weight: bold;
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.user-button {
+  color: white;
+  margin-left: 15px;
+}

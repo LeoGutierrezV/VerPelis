@@ -1,0 +1,62 @@
+<mat-toolbar class="header-toolbar">
+  <div class="header-container">
+    <div class="header-left">
+      <div class="logo" (click)="navigateHome()">
+        <svg class="verpelis-logo" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.24 8.4L16.8 22.5L21.3 8.4H27.15L19.5 30H14.1L6.45 8.4H12.24Z" fill="#E50914"/>
+          <path d="M31.9441 8.4H37.0341V30H31.9441V8.4ZM34.5141 4.8C33.6741 4.8 32.9841 4.53 32.4441 3.99C31.9041 3.45 31.6341 2.79 31.6341 2.01C31.6341 1.23 31.9041 0.57 32.4441 0.03C32.9841 -0.51 33.6741 -0.78 34.5141 -0.78C35.3391 -0.78 36.0141 -0.51 36.5391 0.03C37.0641 0.57 37.3341 1.23 37.3341 2.01C37.3341 2.79 37.0641 3.45 36.5391 3.99C36.0141 4.53 35.3391 4.8 34.5141 4.8Z" fill="#E50914"/>
+          <path d="M41.833 14.4L46.363 30H41.273L36.743 14.4H41.833ZM44.903 8.4C46.223 8.4 47.318 8.79 48.188 9.57C49.058 10.35 49.493 11.34 49.493 12.54C49.493 13.74 49.058 14.73 48.188 15.51C47.318 16.29 46.223 16.68 44.903 16.68C43.583 16.68 42.503 16.29 41.663 15.51C40.823 14.73 40.403 13.74 40.403 12.54C40.403 11.34 40.823 10.35 41.663 9.57C42.503 8.79 43.583 8.4 44.903 8.4Z" fill="#E50914"/>
+          <path d="M59.1359 14.4L63.6659 30H58.5759L54.0459 14.4H59.1359ZM62.2059 8.4C63.5259 8.4 64.6209 8.79 65.4909 9.57C66.3609 10.35 66.7959 11.34 66.7959 12.54C66.7959 13.74 66.3609 14.73 65.4909 15.51C64.6209 16.29 63.5259 16.68 62.2059 16.68C60.8859 16.68 59.8059 16.29 58.9659 15.51C58.1259 14.73 57.7059 13.74 57.7059 12.54C57.7059 11.34 58.1259 10.35 58.9659 9.57C59.8059 8.79 60.8859 8.4 62.2059 8.4Z" fill="#E50914"/>
+          <path d="M74.4487 30V26.7H82.2487C82.2487 24.78 81.8187 22.89 80.9587 21.03C80.0987 19.17 78.9437 17.7 77.4937 16.62L80.3387 14.34C82.4387 15.9 84.0337 17.88 85.1237 20.28C86.2137 22.68 86.7587 25.2 86.7587 27.84C86.7587 28.56 86.7287 29.28 86.6687 30H74.4487Z" fill="#E50914"/>
+          <path d="M90.83 8.4H96.13L103.78 30H98.68L97.3 25.68H89.66L88.28 30H83.18L90.83 8.4ZM95.92 21.6L93.48 13.68L91.04 21.6H95.92Z" fill="#E50914"/>
+          <path d="M111.666 30V8.4H116.756V30H111.666ZM120.126 16.68L127.566 30H121.776L116.216 20.4L120.126 16.68ZM125.466 8.4H131.466L126.246 15.48L122.616 12.3L125.466 8.4Z" fill="#E50914"/>
+          <path d="M132.958 8.4H138.048V30H132.958V8.4ZM135.528 4.8C134.688 4.8 133.998 4.53 133.458 3.99C132.918 3.45 132.648 2.79 132.648 2.01C132.648 1.23 132.918 0.57 133.458 0.03C133.998 -0.51 134.688 -0.78 135.528 -0.78C136.353 -0.78 137.028 -0.51 137.553 0.03C138.078 0.57 138.348 1.23 138.348 2.01C138.348 2.79 138.078 3.45 137.553 3.99C137.028 4.53 136.353 4.8 135.528 4.8Z" fill="#E50914"/>
+          <path d="M150.759 8.01C152.949 8.01 154.749 8.85 156.159 10.53C157.569 12.21 158.274 14.46 158.274 17.28V30H153.184V17.94C153.184 16.44 152.844 15.3 152.164 14.52C151.484 13.74 150.564 13.35 149.404 13.35C148.244 13.35 147.329 13.74 146.659 14.52C145.989 15.3 145.654 16.44 145.654 17.94V30H140.564V8.4H145.654V12.84C146.324 11.52 147.239 10.5 148.399 9.78C149.559 9.06 150.759 8.75 151.991 8.75L150.759 8.01Z" fill="white"/>
+        </svg>
+      </div>
+
+      <nav class="main-nav">
+        <button mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Inicio
+        </button>
+        <button mat-button [matMenuTriggerFor]="categoriesMenu">
+          Categorías <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #categoriesMenu="matMenu">
+          <button mat-menu-item>Acción</button>
+          <button mat-menu-item>Comedia</button>
+          <button mat-menu-item>Drama</button>
+          <button mat-menu-item>Ciencia Ficción</button>
+          <button mat-menu-item>Terror</button>
+        </mat-menu>
+      </nav>
+    </div>
+
+    <div class="header-right">
+      <app-search></app-search>
+
+      <button mat-icon-button class="user-button" [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span>Mi Cuenta</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Configuración</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>help</mat-icon>
+          <span>Ayuda</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Cerrar Sesión</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>

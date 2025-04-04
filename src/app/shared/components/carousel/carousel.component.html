@@ -1,0 +1,39 @@
+<div class="carousel-section">
+  <h2 class="carousel-title" *ngIf="title">{{ title }}</h2>
+
+  <div class="carousel-wrapper">
+    <button
+      *ngIf="showLeftArrow"
+      mat-mini-fab
+      class="carousel-arrow left-arrow"
+      (click)="scrollLeft()"
+      aria-label="Scroll left"
+    >
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+
+    <div class="carousel-container" #carouselContainer>
+      <ng-container *ngIf="movies && movies.length > 0; else noMovies">
+        <div class="carousel-item" *ngFor="let movie of movies">
+          <app-movie-card [movie]="movie" [size]="cardSize"></app-movie-card>
+        </div>
+      </ng-container>
+
+      <ng-template #noMovies>
+        <div class="no-movies">
+          <p>No movies available</p>
+        </div>
+      </ng-template>
+    </div>
+
+    <button
+      *ngIf="showRightArrow"
+      mat-mini-fab
+      class="carousel-arrow right-arrow"
+      (click)="scrollRight()"
+      aria-label="Scroll right"
+    >
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>

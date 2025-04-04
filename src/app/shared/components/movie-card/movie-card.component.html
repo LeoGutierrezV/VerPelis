@@ -1,0 +1,26 @@
+<div class="movie-card" [ngClass]="size" (click)="navigateToDetail()">
+  <div class="poster-container">
+    <img
+      [src]="posterUrl"
+      [alt]="movie.title"
+      class="poster-image"
+      loading="lazy"
+    >
+    <div class="overlay">
+      <div class="rating">
+        <span class="rating-value">{{ movie.vote_average | number:'1.1-1' }}</span>
+      </div>
+      <button
+        mat-mini-fab
+        color="primary"
+        class="play-button"
+        (click)="showPlayerOverlay($event)"
+        aria-label="Play movie"
+      >
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+      <h3 class="movie-title">{{ movie.title }}</h3>
+      <p class="movie-year" *ngIf="movie.release_date">{{ movie.release_date | date:'yyyy' }}</p>
+    </div>
+  </div>
+</div>

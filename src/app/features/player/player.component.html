@@ -1,0 +1,93 @@
+<div class="player-container" (mousemove)="onMouseMove()">
+  <ng-container *ngIf="loading$ | async; else content">
+    <app-loading [overlay]="true"></app-loading>
+  </ng-container>
+
+  <ng-template #content>
+    <ng-container *ngIf="error$ | async as error; else playerContent">
+      <app-error-display [message]="error"></app-error-display>
+    </ng-container>
+
+    <ng-template #playerContent>
+      <ng-container *ngIf="movie$ | async as movie; else noMovie">
+        <!-- Video Player -->
+        <div class="video-container">
+          <ng-container *ngIf="videoTrailer; else fallbackVideo">
+            <iframe
+              [src]="videoTrailer | safeResourceUrl"
+              frameborder="0"
+              allowfullscreen
+              class="video-iframe">
+            </iframe>
+          </ng-container>
+
+          <ng-template #fallbackVideo>
+            <div class="fallback-video" [style.background-image]="'url(https://image.tmdb.org/t/p/original' + movie.backdrop_path + ')'">
+              <div class="fallback-overlay">
+                <h2>{{ movie.title }}</h2>
+                <p>No trailer available</p>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- Custom Controls -->
+          <div class="player-controls" [class.hidden]="!showControls">
+            <div class="progress-bar">
+              <mat-slider
+                min="0"
+                [max]="duration"
+                [value]="currentTime"
+                (input)="seek($event)"
+                class="time-slider"
+                [discrete]="true">
+              </mat-slider>
+              <div class="time-display">
+                <span>{{ formatTime(currentTime) }}</span>
+                <span>{{ formatTime(duration) }}</span>
+              </div>
+            </div>
+
+            <div class="control-buttons">
+              <div class="left-controls">
+                <button mat-icon-button (click)="togglePlay()">
+                  <mat-icon>{{ isPlaying ? 'pause' : 'play_arrow' }}</mat-icon>
+                </button>
+
+                <button mat-icon-button (click)="toggleMute()">
+                  <mat-icon>{{ isMuted ? 'volume_off' : 'volume_up' }}</mat-icon>
+                </button>
+
+                <mat-slider
+                  min="0"
+                  max="100"
+                  [value]="volume"
+                  (input)="changeVolume($event)"
+                  class="volume-slider"
+                  [disabled]="isMuted">
+                </mat-slider>
+
+                <div class="movie-title">{{ movie.title }}</div>
+              </div>
+
+              <div class="right-controls">
+                <button mat-icon-button (click)="exitPlayer()">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #noMovie>
+        <div class="no-movie-container">
+          <h2>Video not available</h2>
+          <button mat-raised-button color="primary" routerLink="/">
+            <mat-icon>arrow_back</mat-icon>
+            Back to Home
+          </button>
+        </div>
+      </ng-template>
+    </ng-template>
+  </ng-template>
+</div>

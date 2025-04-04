@@ -1,0 +1,13 @@
+<div class="error-container">
+  <mat-icon class="error-icon">error_outline</mat-icon>
+  <h2 class="error-title">Something went wrong</h2>
+  <p class="error-message">{{ message }}</p>
+  <button
+    *ngIf="retryable"
+    mat-raised-button
+    color="primary"
+    class="retry-button"
+    (click)="onRetry()">
+    Retry
+  </button>
+</div>

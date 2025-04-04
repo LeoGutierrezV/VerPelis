@@ -1,0 +1,43 @@
+<div class="search-container">
+  <mat-form-field appearance="outline" class="search-field">
+    <input matInput
+           [formControl]="searchControl"
+           placeholder="Search"
+           [matAutocomplete]="auto"
+           type="search">
+    <mat-icon matPrefix>search</mat-icon>
+    <button *ngIf="searchControl.value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="clearSearch()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-autocomplete #auto="matAutocomplete" class="search-autocomplete">
+    <mat-option *ngIf="loading" class="loading-option">
+      <mat-icon>hourglass_empty</mat-icon> Searching...
+    </mat-option>
+
+    <ng-container *ngIf="!loading">
+      <mat-option *ngFor="let movie of searchResults"
+                  [value]="movie.title"
+                  (click)="selectMovie(movie)">
+        <div class="search-result-item">
+          <img [src]="getMoviePosterUrl(movie)" [alt]="movie.title" class="search-result-poster">
+          <div class="search-result-info">
+            <div class="search-result-title">{{ movie.title }}</div>
+            <div class="search-result-year" *ngIf="movie.release_date">
+              {{ movie.release_date | date:'yyyy' }}
+            </div>
+          </div>
+        </div>
+      </mat-option>
+
+      <mat-option *ngIf="searchResults.length === 0 && searchControl.value" disabled>
+        No results found
+      </mat-option>
+    </ng-container>
+  </mat-autocomplete>
+</div>

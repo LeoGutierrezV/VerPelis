@@ -56,7 +56,16 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "fileReplacements": [
+              {
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.development.ts"
+              }
+            ],
+            "allowedCommonJsDependencies": [
+              "dotenv"
+            ]
           },
           "configurations": {
             "production": {
@@ -95,7 +104,10 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "verpelis:build"
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -120,5 +132,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

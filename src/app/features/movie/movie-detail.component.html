@@ -1,0 +1,115 @@
+<div class="movie-detail-container">
+  <ng-container *ngIf="loading$ | async; else content">
+    <app-loading [overlay]="true"></app-loading>
+  </ng-container>
+
+  <ng-template #content>
+    <ng-container *ngIf="error$ | async as error; else movieContent">
+      <app-error-display [message]="error"></app-error-display>
+    </ng-container>
+
+    <ng-template #movieContent>
+      <ng-container *ngIf="movie$ | async as movie; else noMovie">
+        <!-- Backdrop image -->
+        <div class="backdrop-container">
+          <div class="backdrop-image" [style.background-image]="'url(' + getImageUrl(movie.backdrop_path) + ')'"></div>
+          <div class="backdrop-overlay"></div>
+        </div>
+
+        <!-- Movie details -->
+        <div class="movie-content">
+          <div class="movie-header">
+            <div class="movie-poster">
+              <img [src]="getImageUrl(movie.poster_path, 'w500')" [alt]="movie.title" title="Movie Poster">
+            </div>
+
+            <div class="movie-info">
+              <h1 class="movie-title">{{ movie.title }}</h1>
+              <p class="movie-tagline">{{ movie.tagline }}</p>
+
+              <div class="movie-meta">
+                <span class="movie-year">{{ movie.release_date | date:'yyyy' }}</span>
+                <span class="movie-runtime" *ngIf="movie.runtime">{{ formatRuntime(movie.runtime) }}</span>
+                <span class="movie-rating">{{ movie.vote_average | number:'1.1-1' }}/10</span>
+              </div>
+
+              <div class="movie-genres">
+                <mat-chip-set>
+                  <mat-chip *ngFor="let genre of movie.genres">{{ genre.name }}</mat-chip>
+                </mat-chip-set>
+              </div>
+
+              <div class="movie-actions">
+                <button mat-raised-button color="primary" class="play-button" (click)="playMovie(movie.id)">
+                  <mat-icon>play_arrow</mat-icon>
+                  Play
+                </button>
+
+                <button mat-icon-button class="action-button">
+                  <mat-icon>add</mat-icon>
+                </button>
+
+                <button mat-icon-button class="action-button">
+                  <mat-icon>favorite_border</mat-icon>
+                </button>
+
+                <button mat-icon-button class="action-button">
+                  <mat-icon>share</mat-icon>
+                </button>
+              </div>
+
+              <div class="movie-overview">
+                <h3>Overview</h3>
+                <p>{{ movie.overview }}</p>
+              </div>
+
+              <div class="movie-cast" *ngIf="movie.credits?.cast?.length">
+                <h3>Cast</h3>
+                <div class="cast-list">
+                  <div class="cast-item" *ngFor="let person of movie.credits.cast | slice:0:6">
+                    <img
+                      [src]="getImageUrl(person.profile_path, 'w185')"
+                      [alt]="person.name"
+                      title="Cast Member"
+                      onerror="this.src='assets/no-image-available.svg';"
+                    >
+                    <div class="cast-name">{{ person.name }}</div>
+                    <div class="cast-character">{{ person.character }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Similar Movies -->
+          <div class="similar-movies" *ngIf="movie.similar?.results?.length">
+            <app-carousel
+              title="Similar Movies"
+              [movies]="movie.similar?.results ?? []"
+              cardSize="medium">
+            </app-carousel>
+          </div>
+
+          <!-- Recommendations -->
+          <div class="recommendations" *ngIf="movie.recommendations?.results?.length">
+            <app-carousel
+              title="Recommendations"
+              [movies]="movie.recommendations?.results ?? []"
+              cardSize="medium">
+            </app-carousel>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #noMovie>
+        <div class="no-movie-container">
+          <h2>Movie not found</h2>
+          <button mat-raised-button color="primary" routerLink="/">
+            <mat-icon>arrow_back</mat-icon>
+            Back to Home
+          </button>
+        </div>
+      </ng-template>
+    </ng-template>
+  </ng-template>
+</div>

@@ -1,0 +1,35 @@
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.error-icon {
+  font-size: 64px;
+  height: 64px;
+  width: 64px;
+  color: #f44336;
+  margin-bottom: 1rem;
+}
+
+.error-title {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.error-message {
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.retry-button {
+  background-color: #00a8e1 !important;
+}

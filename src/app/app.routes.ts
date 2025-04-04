@@ -1,3 +1,32 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './features/home/home.component';
+import { MovieDetailComponent } from './features/movie/movie-detail.component';
+import { MovieListComponent } from './features/movie/components/movie-list.component';
+import { PlayerComponent } from './features/player/player.component';
+import { SeriesListComponent } from './features/series/series-list.component';
+import { SeriesDetailComponent } from './features/series/series-detail.component';
+import { SeriesPlayerComponent } from './features/series/series-player.component';
+import { SearchComponent } from './features/search/search.component';
+import { GenreComponent } from './features/genre/genre.component';
+import { ProfileComponent } from './features/profile/profile.component';
+import { SettingsComponent } from './features/settings/settings.component';
+import { NotFoundComponent } from './features/not-found/not-found.component';
+import { CategoriesComponent } from './features/categories/categories.component';
+import { CategoryDetailComponent } from './features/categories/category-detail/category-detail.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'movies', component: MovieListComponent },
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'categories/:id', component: CategoryDetailComponent },
+  { path: 'movie/:id/:slug', component: MovieDetailComponent },
+  { path: 'player/:id', component: PlayerComponent },
+  { path: 'series', component: SeriesListComponent },
+  { path: 'series/:id', component: SeriesDetailComponent },
+  { path: 'series/player/:id', component: SeriesPlayerComponent },
+  { path: 'search/:query', component: SearchComponent },
+  { path: 'genre/:id', component: GenreComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: '**', component: NotFoundComponent }
+];

@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div class="search-container">
+  <div class="search-header">
+    <h1 class="search-title">Resultados de búsqueda para "{{ query }}"</h1>
+    <p class="search-count">{{ movies.length }} resultados encontrados</p>
+  </div>
+  
+  <div class="search-content">
+    <div class="movies-grid" *ngIf="movies.length > 0">
+      <app-movie-card
+        *ngFor="let movie of movies"
+        [movie]="movie"
+      ></app-movie-card>
+    </div>
+
+    <div class="no-results" *ngIf="movies.length === 0">
+      <div class="no-results-content">
+        <h2>No se encontraron resultados</h2>
+        <p>Intenta con otros términos de búsqueda</p>
+      </div>
+    </div>
+  </div>
+</div> 

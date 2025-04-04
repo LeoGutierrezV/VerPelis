@@ -1,59 +1,91 @@
-# Verpelis
+# VerPelis - Plataforma de Streaming
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+Una aplicación web de streaming de películas y series desarrollada con Angular 17, inspirada en Prime Video.
 
-## Development server
+## Características
 
-To start a local development server, run:
+- 🎬 Carrusel principal con películas destacadas
+- 🎯 Navegación por categorías y géneros
+- 🔍 Búsqueda de películas y series
+- 🎨 Diseño moderno y responsivo
+- ⚡ Animaciones fluidas y transiciones suaves
+- 🌙 Tema oscuro optimizado
+- 📱 Diseño adaptativo para móviles
 
+## Tecnologías Utilizadas
+
+- Angular 17
+- TypeScript
+- Angular Material
+- NGXS para gestión de estado
+- RxJS
+- SCSS
+- TMDB API
+
+## Requisitos Previos
+
+- Node.js (versión 16 o superior)
+- npm (versión 7 o superior)
+- API Key de TMDB
+
+## Instalación
+
+1. Clona el repositorio:
 ```bash
-ng serve
+git clone https://github.com/tu-usuario/verpelis.git
+cd verpelis
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+2. Instala las dependencias:
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. Configura las variables de entorno:
+   - Crea un archivo `src/environments/environment.ts` basado en `environment.example.ts`
+   - Añade tu API key de TMDB en el archivo de configuración
 
+4. Inicia el servidor de desarrollo:
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+5. Abre tu navegador y visita `http://localhost:4200`
 
-To build the project run:
+## Estructura del Proyecto
 
-```bash
-ng build
+```
+src/
+├── app/
+│   ├── core/           # Servicios, modelos y utilidades
+│   ├── features/       # Módulos de características
+│   ├── shared/         # Componentes compartidos
+│   └── environments/   # Configuraciones de entorno
+├── assets/            # Recursos estáticos
+└── styles/           # Estilos globales
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Componentes Principales
 
-## Running unit tests
+- `NavbarComponent`: Barra de navegación principal
+- `CarouselComponent`: Carrusel de películas destacadas
+- `MovieCardComponent`: Tarjeta de película individual
+- `HomeComponent`: Página principal
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Contribución
 
-```bash
-ng test
-```
+1. Fork el repositorio
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-## Running end-to-end tests
+## Licencia
 
-For end-to-end (e2e) testing, run:
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
 
-```bash
-ng e2e
-```
+## Contacto
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Tu Nombre - [@tutwitter](https://twitter.com/tutwitter) - email@example.com
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Link del Proyecto: [https://github.com/tu-usuario/verpelis](https://github.com/tu-usuario/verpelis)
