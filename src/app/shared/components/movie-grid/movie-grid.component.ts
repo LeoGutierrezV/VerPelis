@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Movie } from '@core/models/movie.interface';
-import { MovieService } from '@core/services/movie.service';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { Movie } from '../../../_model/movie.interface';
+import { MovieService } from '../../../_service/movie.service';
 
 @Component({
   selector: 'app-movie-grid',
@@ -102,4 +102,4 @@ export class MovieGridComponent implements OnInit {
   ngOnInit() {
     // Lógica de inicialización si es necesaria
   }
-} 
+}

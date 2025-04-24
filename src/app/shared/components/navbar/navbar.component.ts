@@ -1,10 +1,10 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
-import { MovieService } from '@core/services/movie.service';
-import { Movie } from '@core/models/movie.interface';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { Movie } from '../../../_model/movie.interface';
+import { MovieService } from '../../../_service/movie.service';
 
 @Component({
   selector: 'app-navbar',
@@ -32,8 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
           </div>
 
           <div class="search-results" *ngIf="searchResults.length > 0">
-            <div 
-              class="search-result-item" 
+            <div
+              class="search-result-item"
               *ngFor="let movie of searchResults.slice(0, 3)"
               (click)="goToMovie(movie)"
             >
@@ -278,13 +278,18 @@ export class NavbarComponent implements OnInit {
 
     if (this.searchQuery.length >= 3) {
       this.searchTimeout = setTimeout(() => {
-        this.movieService.searchMovies(this.searchQuery, 1).subscribe(movies => {
-          this.searchResults = movies;
-        });
+        this.searchMovies();
       }, 300);
     } else {
       this.searchResults = [];
     }
+  }
+
+  searchMovies(): void {
+    if (!this.searchQuery.trim()) return;
+    this.movieService.searchMovies(this.searchQuery, 1).subscribe((movies: Movie[]) => {
+      this.searchResults = movies;
+    });
   }
 
   goToMovie(movie: Movie) {

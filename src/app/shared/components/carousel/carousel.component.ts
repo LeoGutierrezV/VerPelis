@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Movie } from '@core/models/movie.interface';
-import { MovieService } from '@core/services/movie.service';
+import { Movie } from '../../../_model/movie.interface';
+import { MovieService } from '../../../_service/movie.service';
 
 @Component({
   selector: 'app-carousel',
@@ -32,17 +32,17 @@ import { MovieService } from '@core/services/movie.service';
           </div>
         </div>
       </div>
-      
+
       <button class="carousel-control prev" (click)="prevSlide()">
         <span class="control-icon">❮</span>
       </button>
       <button class="carousel-control next" (click)="nextSlide()">
         <span class="control-icon">❯</span>
       </button>
-      
+
       <div class="carousel-indicators">
-        <button 
-          *ngFor="let movie of movies; let i = index" 
+        <button
+          *ngFor="let movie of movies; let i = index"
           [class.active]="i === currentIndex"
           (click)="goToSlide(i)"
         ></button>
@@ -252,7 +252,7 @@ import { MovieService } from '@core/services/movie.service';
     }
   `]
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent implements OnInit, OnDestroy {
   @Input() movies: Movie[] = [];
   currentIndex = 0;
   private interval: any;

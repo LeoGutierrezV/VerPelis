@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
-import { Movie } from '../../../core/models/movie.interface';
+import { Movie } from '../../../models/movie.interface';
 import { MovieService } from '../../../core/services/movie.service';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 

@@ -1,18 +1,17 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './features/home/home.component';
-import { MovieDetailComponent } from './features/movie/movie-detail.component';
-import { MovieListComponent } from './features/movie/components/movie-list.component';
-import { PlayerComponent } from './features/player/player.component';
-import { SeriesListComponent } from './features/series/series-list.component';
-import { SeriesDetailComponent } from './features/series/series-detail.component';
-import { SeriesPlayerComponent } from './features/series/series-player.component';
-import { SearchComponent } from './features/search/search.component';
-import { GenreComponent } from './features/genre/genre.component';
-import { ProfileComponent } from './features/profile/profile.component';
-import { SettingsComponent } from './features/settings/settings.component';
-import { NotFoundComponent } from './features/not-found/not-found.component';
-import { CategoriesComponent } from './features/categories/categories.component';
-import { CategoryDetailComponent } from './features/categories/category-detail/category-detail.component';
+import { MovieDetailComponent } from './pages/movie/movie-detail.component';
+import { MovieListComponent } from './pages/movie/movie-list.component';
+import { SeriesListComponent } from './pages/series/series-list.component';
+import { SeriesDetailComponent } from './pages/series/series-detail.component';
+import { SeriesPlayerComponent } from './pages/series/series-player.component';
+import { SearchComponent } from './pages/search/search.component';
+import { GenreComponent } from './pages/genre/genre.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { CategoryDetailComponent } from './pages/categories/category-detail/category-detail.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,7 +19,6 @@ export const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'categories/:id', component: CategoryDetailComponent },
   { path: 'movie/:id/:slug', component: MovieDetailComponent },
-  { path: 'player/:id', component: PlayerComponent },
   { path: 'series', component: SeriesListComponent },
   { path: 'series/:id', component: SeriesDetailComponent },
   { path: 'series/player/:id', component: SeriesPlayerComponent },

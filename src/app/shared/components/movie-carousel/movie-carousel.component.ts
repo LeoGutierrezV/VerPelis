@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
-import { Movie } from '../../../core/models/movie.interface';
+import { Movie } from '../../../models/movie.interface';
 
 @Component({
   selector: 'app-movie-carousel',

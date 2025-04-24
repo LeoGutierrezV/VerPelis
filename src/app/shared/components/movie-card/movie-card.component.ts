@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { Movie } from '@core/models/movie.interface';
-import { MovieService } from '@core/services/movie.service';
+import { Movie } from '../../../_model/movie.interface';
+import { MovieService } from '../../../_service/movie.service';
 
 @Component({
   selector: 'app-movie-card',

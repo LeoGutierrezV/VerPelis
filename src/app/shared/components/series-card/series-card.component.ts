@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
-import { Series } from '@core/models/series.interface';
+import { Series } from 'src/app/models/series.interface';
 import { SeriesService } from '@core/services/series.service';
 
 @Component({

@@ -1,32 +1,36 @@
-# VerPelis - Plataforma de Streaming
+# VerPelis - Aplicación de Streaming de Películas
 
-Una aplicación web de streaming de películas y series desarrollada con Angular 17, inspirada en Prime Video.
+Una aplicación web moderna para ver películas, construida con Angular y la API de TMDB.
 
 ## Características
 
-- 🎬 Carrusel principal con películas destacadas
-- 🎯 Navegación por categorías y géneros
-- 🔍 Búsqueda de películas y series
-- 🎨 Diseño moderno y responsivo
-- ⚡ Animaciones fluidas y transiciones suaves
-- 🌙 Tema oscuro optimizado
-- 📱 Diseño adaptativo para móviles
+- 🎬 Exploración de películas populares, mejor valoradas y próximas a estrenarse
+- 🔍 Búsqueda de películas por título
+- ❤️ Sistema de favoritos
+- 📱 Diseño responsive
+- 🌙 Modo oscuro
+- 🌍 Soporte multiidioma (Español e Inglés)
+- ♿ Características de accesibilidad
+- 🔒 Autenticación de usuarios
+- 📊 Historial de visualización
+- ⚡ Optimización de rendimiento
 
 ## Tecnologías Utilizadas
 
 - Angular 17
 - TypeScript
-- Angular Material
-- NGXS para gestión de estado
 - RxJS
-- SCSS
-- TMDB API
+- NGXS para gestión de estado
+- Angular Material
+- Tailwind CSS
+- Jest para pruebas unitarias
+- Cypress para pruebas e2e
 
 ## Requisitos Previos
 
-- Node.js (versión 16 o superior)
-- npm (versión 7 o superior)
-- API Key de TMDB
+- Node.js (v18 o superior)
+- npm (v9 o superior)
+- Angular CLI (v17 o superior)
 
 ## Instalación
 
@@ -41,13 +45,20 @@ cd verpelis
 npm install
 ```
 
-3. Configura las variables de entorno:
-   - Crea un archivo `src/environments/environment.ts` basado en `environment.example.ts`
-   - Añade tu API key de TMDB en el archivo de configuración
+3. Crea un archivo `environment.ts` en `src/environments/` con tus credenciales de TMDB:
+```typescript
+export const environment = {
+  production: false,
+  tmdbApiUrl: 'https://api.themoviedb.org/3',
+  tmdbApiKey: 'TU_API_KEY',
+  imageBaseUrl: 'https://image.tmdb.org/t/p',
+  defaultLanguage: 'es-ES'
+};
+```
 
 4. Inicia el servidor de desarrollo:
 ```bash
-npm start
+ng serve
 ```
 
 5. Abre tu navegador y visita `http://localhost:4200`
@@ -57,24 +68,51 @@ npm start
 ```
 src/
 ├── app/
-│   ├── core/           # Servicios, modelos y utilidades
-│   ├── features/       # Módulos de características
-│   ├── shared/         # Componentes compartidos
-│   └── environments/   # Configuraciones de entorno
-├── assets/            # Recursos estáticos
-└── styles/           # Estilos globales
+│   ├── _components/     # Componentes compartidos
+│   ├── _constants/      # Constantes de la aplicación
+│   ├── _guards/         # Guards de rutas
+│   ├── _interceptors/   # Interceptores HTTP
+│   ├── _model/          # Interfaces y modelos
+│   ├── _service/        # Servicios
+│   ├── _store/          # Estado global (NGXS)
+│   ├── _types/          # Tipos TypeScript
+│   ├── pages/           # Componentes de páginas
+│   └── shared/          # Módulos compartidos
+├── assets/             # Recursos estáticos
+└── environments/       # Configuraciones de entorno
 ```
 
-## Componentes Principales
+## Pruebas
 
-- `NavbarComponent`: Barra de navegación principal
-- `CarouselComponent`: Carrusel de películas destacadas
-- `MovieCardComponent`: Tarjeta de película individual
-- `HomeComponent`: Página principal
+### Pruebas Unitarias
+```bash
+npm run test
+```
 
-## Contribución
+### Pruebas e2e
+```bash
+npm run e2e
+```
 
-1. Fork el repositorio
+## Características de Accesibilidad
+
+- Soporte para lectores de pantalla
+- Navegación por teclado
+- Modo de alto contraste
+- Tamaños de fuente ajustables
+- Reducción de movimiento
+
+## Optimizaciones de Rendimiento
+
+- Lazy loading de módulos
+- Caché de datos
+- Optimización de imágenes
+- Virtual scrolling
+- Service workers para offline
+
+## Contribuir
+
+1. Haz un fork del repositorio
 2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
 3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
 4. Push a la rama (`git push origin feature/AmazingFeature`)
@@ -82,7 +120,7 @@ src/
 
 ## Licencia
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
 
 ## Contacto
 
