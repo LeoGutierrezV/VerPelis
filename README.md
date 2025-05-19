@@ -124,6 +124,6 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE.md
 
 ## Contacto
 
-Tu Nombre - [@tutwitter](https://twitter.com/tutwitter) - email@example.com
+Tu Nombre - LeoGutierrezV - leogutierrez1225@gmaail.com
 
-Link del Proyecto: [https://github.com/tu-usuario/verpelis](https://github.com/tu-usuario/verpelis)
+Link del Proyecto: [https://github.com/tu-usuario/verpelis](https://github.com/LeoGutierrezV/verpelis)
